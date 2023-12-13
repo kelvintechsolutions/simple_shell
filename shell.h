@@ -142,8 +142,8 @@ char **strtow2(char *, char);
 char *_memset(char *, char, unsigned int);
 void ffree(char **);
 void *_realloc(void *, unsigned int, unsigned int);
-/*memory.c */
-int bfree(void **);
+/*mem.c */
+int free_pointer(void **);
 /*atoi.c */
 int interactive(info_t *);
 int is_delim(char, char *);
