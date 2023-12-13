@@ -4,7 +4,7 @@
  * hsh - it loops over the shell
  * @info: information parameter
  * @av: argument vector
- * Return: 0
+ * Return: 0 if successful.
  */
 
 int hsh(info_t *info, char **av)
