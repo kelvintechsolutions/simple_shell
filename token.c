@@ -32,19 +32,19 @@ char **strtow(char *str, char *d)
 		c = 0;
 		while (!is_delim(str[a + c], d) && str[a + c])
 			c++;
-		s[b] = malloc((c + 1) * sizeof(char));
-		if (!s[b])
+		p[b] = malloc((c + 1) * sizeof(char));
+		if (!p[b])
 		{
 			for (c = 0; c < b; c++)
-				free(s[c]);
+				free(p[c]);
 			free(p);
 			return (NULL);
 		}
 		for (f = 0; f < c; f++)
-			s[b][f] = str[a++];
-		s[b][f] = 0;
+			p[b][f] = str[a++];
+		p[b][f] = 0;
 	}
-	s[b] = NULL;
+	p[b] = NULL;
 	return (p);
 }
 
@@ -61,12 +61,10 @@ char **strtow2(char *str, char d)
 
 	if (str == NULL || str[0] == 0)
 		return (NULL);
-	if (!d)
-		d = " ";
 	for (a = 0; str[a] != '\0'; a++)
-		if (!is_delim(str[a], d) && (is_delim(str[a + 1], d) || !str[a + 1]))
+		if ((str[a] != d && str[a + 1] == d) ||
+		    (str[a] != d && !str[a + 1]) || str[a + 1] == d)
 			wordcount++;
-
 	if (wordcount == 0)
 		return (NULL);
 	p = malloc((1 + wordcount) * sizeof(char *));
@@ -74,23 +72,23 @@ char **strtow2(char *str, char d)
 		return (NULL);
 	for (a = 0, b = 0; b < wordcount; b++)
 	{
-		while (is_delim(str[a], d))
+		while (str[a] == d && str[a] != d)
 			a++;
 		c = 0;
-		while (!is_delim(str[a + c], d) && str[a + c])
+		while (str[a + c] != d && str[a + c] && str[a + c] != d)
 			c++;
-		s[b] = malloc((c + 1) * sizeof(char));
-		if (!s[b])
+		p[b] = malloc((c + 1) * sizeof(char));
+		if (!p[b])
 		{
 			for (c = 0; c < b; c++)
-				free(s[c]);
+				free(p[c]);
 			free(p);
 			return (NULL);
 		}
 		for (f = 0; f < c; f++)
-			s[b][f] = str[a++];
-		s[b][f] = 0;
+			p[b][f] = str[a++];
+		p[b][f] = 0;
 	}
-	s[b] = NULL;
+	p[b] = NULL;
 	return (p);
 }

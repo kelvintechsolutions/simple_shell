@@ -81,10 +81,10 @@ int find_builtin(info_t *info)
  */
 void find_cmd(info_t *info)
 {
-	char *path_locator = NULL;
+	char *path = NULL;
 	int index, val_p;
 
-	info->path_locator = info->argv[0];
+	info->path = info->argv[0];
 	if (info->linecount_flag == 1)
 	{
 		info->line_count++;
@@ -96,10 +96,10 @@ void find_cmd(info_t *info)
 	if (!val_p)
 		return;
 
-	path_locator = find_path(info, _getenv(info, "PATH="), info->argv[0]);
-	if (path_locator)
+	path = find_path(info, _getenv(info, "PATH="), info->argv[0]);
+	if (path)
 	{
-		info->path_locator = path_locator;
+		info->path = path;
 		fork_cmd(info);
 	}
 	else
@@ -123,15 +123,15 @@ void find_cmd(info_t *info)
 
 void fork_cmd(info_t *info)
 {
-	parid_t child_parid;
+	pid_t child_pid;
 
-	child_parid = fork();
-	if (child_parid == -1)
+	child_pid = fork();
+	if (child_pid == -1)
 	{
 		perror("Error:");
 		return;
 	}
-	if (child_parid == 0)
+	if (child_pid == 0)
 	{
 		if (execve(info->path, info->argv, get_environ(info)) == -1)
 		{

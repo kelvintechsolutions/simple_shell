@@ -1,24 +1,24 @@
 #include "shell.h"
 
 /**
- * working_environment - it outputs the current working environment
- * @info: Structure containing potential arguments. Used to maintain
- *          constant function prototype.
- * Return: Always 0
+ * _myenv - it outputs the current working environment
+ * @info: information parameter
+ * Return: 0
  */
-int working_environment(info_t *info)
+
+int _myenv(info_t *info)
 {
 	print_list_str(info->env);
 	return (0);
 }
 
 /**
- * _getenvironment - it gets the value of environment variable
+ * _getenv - it gets the value of environment variable
  * @info: information parameter
  * @name: address variable
  * Return: Value
  */
-char *_getenvironment(info_t *info, const char *name)
+char *_getenv(info_t *info, const char *name)
 {
 	list_t *node = info->env;
 	char *p;
@@ -34,11 +34,11 @@ char *_getenvironment(info_t *info, const char *name)
 }
 
 /**
- * _myworkingenvironment - It sets a new environment variable
+ * _mysetenv - It sets a new environment variable
  * @info: information parameter
  *  Return: 0
  */
-int _myworkingenvironment(info_t *info)
+int _mysetenv(info_t *info)
 {
 	if (info->argc != 3)
 	{
@@ -51,11 +51,11 @@ int _myworkingenvironment(info_t *info)
 }
 
 /**
- * _mydormenvironment - Remove an unset environment
+ * _myunsetenv - Remove an unset environment
  * @info: information parameter
  *  Return: 0
  */
-int _mydormenvironment(info_t *info)
+int _myunsetenv(info_t *info)
 {
 	int i;
 
@@ -71,11 +71,11 @@ int _mydormenvironment(info_t *info)
 }
 
 /**
- * pop_environment_list -it populates env linked list
+ * populate_env_list -it populates env linked list
  * @info: information parameter
  * Return: 0
  */
-int pop_environment_list(info_t *info)
+int populate_env_list(info_t *info)
 {
 	list_t *node = NULL;
 	size_t i;
