@@ -3,7 +3,7 @@
 /**
  * get_environ - initializes new environment
  * @info: first parameter
- * Return: 0
+ * Return: 0 if successful.
  */
 
 char **get_environ(info_t *info)
