@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- **_memset - sets memory with a constant byte
+ **_memset - it sets memory with a constant byte
  *@s: first parameter
  *@b: second parameter
  *@n: third parameter
