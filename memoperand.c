@@ -3,7 +3,7 @@
 /**
  * bfree - frees a pointer to a memory
  * @ptr: it addresses the pointer to free
- * Return: 1 if successful else 0
+ * Return: 1 if successful else 0.
  */
 
 int bfree(void **ptr)
