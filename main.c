@@ -4,7 +4,7 @@
  * main - starting point
  * @arg_count: argument count
  * @arg_vector: argument vector
- * Return: 0
+ * Return: 0 if successful.
  */
 
 int main(int arg_count, char **arg_vector)
