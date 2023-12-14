@@ -3,7 +3,7 @@
 /**
  * list_len - function determines length of linked list
  * @h: pointer
- * Return: list size
+ * Return: list size.
  */
 
 size_t list_len(const list_t *h)
