@@ -2,7 +2,7 @@
 
 /**
  *_eputs - the function outputs an input string
- * @str: string
+ * @str: string.
  */
 
 void _eputs(char *str)
