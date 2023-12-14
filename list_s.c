@@ -5,7 +5,7 @@
  * @head: head pointer
  * @str: string
  * @num: number
- * Return: list size
+ * Return: list size.
  */
 
 list_t *add_node(list_t **head, const char *str, int num)
