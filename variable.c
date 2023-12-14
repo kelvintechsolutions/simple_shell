@@ -5,7 +5,7 @@
  * @info: information parameter
  * @buf: buffering parameter
  * @p: pointer address
- * Return: 1
+ * Return: 1.
  */
 
 int is_chain(info_t *info, char *buf, size_t *p)
